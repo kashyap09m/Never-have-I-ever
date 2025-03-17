@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Never Have I Ever - Game</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background-color: #1e1e2f;
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .game-container {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            margin: 50px auto;
+            border-radius: 50%;
+            border: 5px solid #d8636d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #2c3e50;
+            box-shadow: 0px 0px 15px rgba(255, 71, 87, 0.7);
+        }
+        .player {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            background-color: #e66872;
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            text-align: center;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .arrow {
+            width: 50px;
+            height: 200px;
+            position: absolute;
+            top: 30%;
+            left: 45%;
+            transform-origin: center;
+            transition: transform 2s ease-out;
+        }
+        button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 18px;
+            background-color: #ff4757;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #e84118;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: none;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Never Have I Ever - Game</h1>
+    <div class="container">
+        <input type="number" id="numPlayers" placeholder="Enter number of players">
+        <button onclick="addPlayers()">Submit</button>
+        <div id="playerInputs"></div>
+    </div>
+    <div class="game-container" id="gameContainer">
+        <img src="arrow.jpg" class="arrow" id="arrow">
+    </div>
+    <button onclick="spinArrow()">Spin the bottle</button>
+    
+    <script>
+        let players = [];
+        function addPlayers() {
+            let num = document.getElementById("numPlayers").value;
+            let playerInputs = document.getElementById("playerInputs");
+            playerInputs.innerHTML = "";
+            players = [];
+            for (let i = 0; i < num; i++) {
+                let input = document.createElement("input");
+                input.placeholder = `Enter player ${i + 1} name`;
+                input.id = `player${i}`;
+                playerInputs.appendChild(input);
+            }
+            let btn = document.createElement("button");
+            btn.innerText = "Start Game";
+            btn.onclick = arrangePlayers;
+            playerInputs.appendChild(btn);
+        }
+
+        function arrangePlayers() {
+            let num = document.getElementById("numPlayers").value;
+            let gameContainer = document.getElementById("gameContainer");
+            gameContainer.innerHTML = '<img src="arrow.jpg" class="arrow" id="arrow">';
+            players = [];
+            for (let i = 0; i < num; i++) {
+                let name = document.getElementById(`player${i}`).value;
+                players.push(name);
+            }
+            const radius = 200;
+            players.forEach((player, index) => {
+                const angle = (index / players.length) * (2 * Math.PI);
+                const x = radius * Math.cos(angle) + 250;
+                const y = radius * Math.sin(angle) + 250;
+                
+                const playerDiv = document.createElement('div');
+                playerDiv.className = 'player';
+                playerDiv.style.left = `${x}px`;
+                playerDiv.style.top = `${y}px`;
+                playerDiv.textContent = player;
+                gameContainer.appendChild(playerDiv);
+            });
+        }
+
+        function spinArrow() {
+    const arrow = document.getElementById("arrow");
+
+    // Reset the transform property to ensure smooth animation
+    arrow.style.transition = "none";
+    arrow.style.transform = "rotate(0deg)";
+
+    setTimeout(() => {
+        // Generate a high-speed spin value
+        const randomRotation = Math.floor(Math.random() * 360) + 1440; // Ensures multiple fast spins
+        arrow.style.transition = "transform 2s ease-out";
+        arrow.style.transform = `rotate(${randomRotation}deg)`;
+
+        setTimeout(() => {
+            // Determine the selected player based on final rotation
+            const selectedPlayerIndex = Math.floor((randomRotation % 360) / (360 / players.length));
+            const selectedPlayer = players[selectedPlayerIndex];
+
+            // Random question selection
+            const questions = [
+                    "Never have I ever lied to get out of trouble.",
+                    "Never have I ever skipped school without permission.",
+                    "Never have I ever eaten an entire pizza by myself.",
+                    "Never have I ever forgotten a close friend's birthday.",
+                    "Never have I ever stayed up all night watching movies.",
+                    "Never have I ever danced in the rain.",
+                    "Never have I ever gone on a road trip without a plan.",
+                    "Never have I ever kiss your opposite Gender bestfriend.",
+                    "You can ask your Question",
+                    "Never have I ever drunk-dialed my ex",
+                    "Never have I ever cheated on someone",
+                    "Never have I ever been on a blind date",
+                    "Never have I ever used a fake ID to stock anyone",
+                    "Never have I ever broken up with someone",
+                    "Never have I ever used someone else’s toothbrush",
+                    "Never have I ever fought in public",
+                    "Never have I ever you trying to flret with teacher and she/he respond to it",
+                    "Never have I ever you chaught while watching porn",
+                    "Never have I ever fallen asleep in public",
+                    "Never have I ever kissed more than one person in 24 hours excluding parent",
+                    "Never have I ever regifted a gift",
+                    "Never have I ever had a one-night stand",
+                    "Never have I ever left gum in a public space",
+                    "Never have I ever slept outdoors for an entire night",
+                    "Never have I ever regretted an apology",
+                    "Never have I ever disliked something that I cooked",
+                    "Never have I ever deleted a post on social media because it didn’t get enough likes"
+                ];
+            const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+            alert(`${selectedPlayer}, ${randomQuestion}`);
+        }, 2000); // Ensure this runs after the animation completes
+    }, 50); // Small delay before applying the new transition
+}
+    </script>
+</body>
+</html>
