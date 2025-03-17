@@ -20,13 +20,12 @@ This repository contains the source code for the **Never Have I Ever** game buil
 4. Enjoy the game with friends or family!
 
 ## Screenshots
-1.first interface while you enter in the game
-ss1.png
-2.After entered No.of players and their name
-ss2.png
-3.After spinning the bottle
-ss3.png
-
+1.first interface while you enter in the game\n
+![Screenshot1](https://github.com/kashyap09m/Never-have-I-ever.git/raw/main/ss1.png)
+2.After entered No.of players and their name\n
+![Screenshot2](https://github.com/kashyap09m/Never-have-I-ever.git/raw/main/ss2.png)
+3.After spinning the bottle\n
+![Screenshot3](https://github.com/kashyap09m/Never-have-I-ever.git/raw/main/ss3.png)
 
 ## Installation Instructions
 To run the game locally, follow these steps:
