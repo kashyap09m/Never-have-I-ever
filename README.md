@@ -21,18 +21,18 @@ This repository contains the source code for the **Never Have I Ever** game buil
 
 ## Screenshots
 1.first interface while you enter in the game
-![Game Screenshot](/home/dbda-user16/Pictures/Screenshots/ss1.png)
+(/home/dbda-user16/Pictures/Screenshots/ss1.png)
 2.After entered No.of players and their name
-![Screenshort](/home/dbda-user16/Pictures/Screenshots/ss2.png)
+(/home/dbda-user16/Pictures/Screenshots/ss2.png)
 3.After spinning the bottle
-![screenshort](/home/dbda-user16/Pictures/Screenshots/ss3.png)
+(/home/dbda-user16/Pictures/Screenshots/ss3.png)
 
 
 ## Installation Instructions
 To run the game locally, follow these steps:
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-username/never-have-i-ever.git
+    git clone https://github.com/kashyap09m/Never-have-I-ever.git
     ```
 2. Open the index.html file in any web browser to start playing the game.
 
