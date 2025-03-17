@@ -21,11 +21,11 @@ This repository contains the source code for the **Never Have I Ever** game buil
 
 ## Screenshots
 1.first interface while you enter in the game
-(/home/dbda-user16/Pictures/Screenshots/ss1.png)
+ss1.png
 2.After entered No.of players and their name
-(/home/dbda-user16/Pictures/Screenshots/ss2.png)
+ss2.png
 3.After spinning the bottle
-(/home/dbda-user16/Pictures/Screenshots/ss3.png)
+ss3.png
 
 
 ## Installation Instructions
